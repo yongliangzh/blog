@@ -5,7 +5,7 @@
 }
 
 .public-header {
-    height: 105px;
+    height: 110px;
     width: 100%;
 }
 
@@ -107,3 +107,41 @@
 
        
     }
+    .panel-body span{
+        display:inline-block;
+        font-size:16px;
+        margin:7px 0px 7px 10px;
+    }
+    .panel-body div{
+        position:relative;
+        margin-left:10px;
+        top:3px;
+        display:inline-block;
+        width:18px;
+        height:16px;
+    }
+    .panel-body span:hover{
+        cursor:pointer;
+        text-decoration:underline;
+    }
+    .page-normal{
+        text-align:center;
+    }
+    .page-normal span{
+        display:inline-block;
+	color:#111111;
+    width:40px;
+    height:40px;
+    margin-left:10px;
+	text-align:center;
+	font-size:20px;
+    background-color:#eeeeee;
+
+    border-radius:5px;
+    line-height:40px;
+}
+        .page-normal span:hover{
+        cursor:pointer;
+        text-decoration:underline;
+        background-color:#dddddd;
+}
