@@ -1,0 +1,55 @@
+﻿
+        .public-header{
+            position:fixed;
+            top:0;
+            height:50px;
+            width:100%;
+            
+            opacity:0.9;
+        }
+        .public-container{
+            width:80%;
+            height:100%;
+            min-width:500px;
+            max-width:1000px;
+            margin:0 auto;
+        }
+        .text-type{
+            margin-left:0px;
+            font-size:30px;
+            line-height:50px;
+        }
+        .explaination{
+           float:right;
+           margin-top:15px;
+           font-size:20px;
+          
+        }
+        .main-panel{
+            margin-top:50px;
+            width:100%;
+
+        }
+        .main-container{
+            width:80%;
+            height:2000px;
+            min-width:500px;
+            max-width:1000px;
+            margin:0 auto;
+            background-color:#eeeeee;
+        }
+        .methods{
+            background-color:#337ab7;
+        }
+        .summaries{
+            background-color:#d9edf7;
+        }
+        .learnings{
+            background-color:#dff0d8;
+        }
+        .warnings{
+            background-color:#fcf8e3;
+        }
+        .dialogs{
+            background-color:#f5f5f5;
+        }
