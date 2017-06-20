@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax和JSON的一些总结</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
+    <link href="../../../css/blog-templet.css" rel="stylesheet" />
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/blog-templet.js"></script>
+    
+</head>
+
+<body>
+    <div class="public-header summaries">
+        <div class="public-container ">
+            <span class="text-type">编程之术</span>
+            <span class="explaination">浅薄小术，不足道也~</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div class="main-container">
+            <div class="blog-title"><h2>Ajax和JSON的一些总结</h2></div>
+           
+            <p>jQuery对Ajax操作进行了封装，在jQuerry中$.ajax()方法属于最底层的方法，
+            第二层是load()、$.get()、$.post()方法，第三层是$.getScript()和$.getJSON()方法，
+            《锋利的jQuerry（第二版）》中写道第二层使用频率最高。（我猜是因为$.get()、$.post()打的字最少，手动滑稽）</p><br/>
+            <p>在这里，我经常使用第二层的$.get()、$.post()方法，但偶尔比较喜欢使用第一层的$.ajax()，
+            通过设置type:"GET"或type:"POST"来设置请求方式。那么，使用$.ajax()有什么好处呢？</p><br/>
+            <p>众所周知，Ajax是一种异步传输方式（关键词：异步），也就是说程序在执行的过程中不会去等Ajax执行完成之后再去执行
+            异步请求后面的操作，但往往有些时候，我们必须拿到Ajax返回回来的数据才能执行后面的操作，而后面的操作对返回的数据没有直接
+            关联，无需写在回调函数里。</p><br/>
+            <p>这里就涉及到$.ajax()里一个非常有用的参数<span style="color:red">async</span>，通过设置<span style="color:red">async:false</span>
+            我们可以很轻易地取消掉异步对程序执行流程的影响。</p><br/>
+
+            <p>关于JSON数据格式的取值，主要分为变量、数组、二维数组：</p><br/>
+            <p>首先得变量的取值,这个比较简单，直接在回调函数里拿出来用就好了,比如C#后台（C#是最好的语言！）传回前台一段字符串：</p>
+            <pre>Response.Write("error");</pre>
+            <p>那在前台这样取数据：</p>
+            <pre>$.post("/Action/UserAction.aspx", {
+            action: "getuserinfo",<
+            dataType: "json"<
+        }, function (json) {
+           alert(json);
+        }).error(function () { $.toptip('连接服务器失败', 'error'); });
+    });</pre><br/>
+            <p>如果后台传到前台是一个数组(ad是待传数组)：</p>
+            <pre>string json = JsonConvert.SerializeObject(ad);
+Response.Write(json);</pre>
+            <p>前台的接收代码以及取值代码：</p>
+            <pre>$.post("/Action/UserAction.aspx", {
+            action: "getuserinfo",<
+            dataType: "json"<
+        }, function (json) {
+            var obj = $.parseJSON(json);
+            if (obj.Username == "") {
+                alert("用户不存在请重新登陆");
+            } else {
+                loaduserinfo(obj.Username, obj.Userpicture, obj.Backgroundpicture);
+                loadmessageinfo(obj.Id, obj.Username, obj.Userpicture);
+            }
+        }).error(function () { $.toptip('连接服务器失败', 'error'); });
+
+    });</pre><br/>
+            <p>如果后台传到前台是一个二维数组（此处用数据库的select结果举例，dt是待传数组）：</p>
+            <pre>Response.Write(JsonConvert.SerializeObject(dt));</pre>
+            <p>前台的接收代码以及取值代码：</p>
+            <pre>$.ajax({
+            type: "get",
+            dataType: "json",
+            url: "/Action/UserAction.aspx",
+            data: { action: "getmessageinfo" },
+            beforeSend: function () { },
+            success: function (json) {
+                    $.each(json, function (index, array) { }
+                    });
+            },
+                error: function () {
+                    $.toptip('连接服务器失败', 'error');
+                }
+            });
+</pre><br/>
+            <p>不得不说JSON真是个好东西，是一种非常灵活的数据传输格式，比如数组中的一个单元不仅可以是一个变量还可以是一个数组，
+            很好很强大！</p>
+            <div class="mark">Ajax</div>
+            <div class="mark">JSON</div>
+            <br/><br/><br/><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</body>
+</html>

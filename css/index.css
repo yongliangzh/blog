@@ -102,7 +102,7 @@
        position:absolute;
        margin-left:350px;
         
-    height:800px;
+    
         width:750px;
 
        
@@ -145,3 +145,20 @@
         text-decoration:underline;
         background-color:#dddddd;
 }
+        .time{
+        
+            float:right;
+         
+        }
+        .label-mark{
+            display:inline-block;
+            height:20px;
+            border-radius:10px;
+            background-color:#dddddd;
+            font-size:14px;
+            text-align:center;
+            line-height:20px;
+            padding-left:10px;
+            padding-right:10px;
+            margin-right:10px;
+        }
