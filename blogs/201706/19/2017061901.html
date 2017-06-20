@@ -49,8 +49,8 @@
 Response.Write(json);</pre>
             <p>前台的接收代码以及取值代码：</p>
             <pre>$.post("/Action/UserAction.aspx", {
-            action: "getuserinfo",<
-            dataType: "json"<
+            action: "getuserinfo",
+            dataType: "json"
         }, function (json) {
             var obj = $.parseJSON(json);
             if (obj.Username == "") {
@@ -72,7 +72,9 @@ Response.Write(json);</pre>
             data: { action: "getmessageinfo" },
             beforeSend: function () { },
             success: function (json) {
-                    $.each(json, function (index, array) { }
+                    $.each(json, function (index, array) { 
+                        alert(array["id"]);
+                        }
                     });
             },
                 error: function () {
@@ -81,10 +83,11 @@ Response.Write(json);</pre>
             });
 </pre><br/>
             <p>不得不说JSON真是个好东西，是一种非常灵活的数据传输格式，比如数组中的一个单元不仅可以是一个变量还可以是一个数组，
-            很好很强大！</p>
+            很好很强大！</p><br />
             <div class="mark">Ajax</div>
             <div class="mark">JSON</div>
-            <br/><br/><br/><br /><br /><br /><br /><br /><br /><br />
+            <div class="time">2017-06-19</div>
+            <br/><br/><br/><br /><br /><br /><br /><br /><br />
         </div>
     </div>
 </body>
