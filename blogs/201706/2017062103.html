@@ -1,0 +1,607 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿京东无延时菜单</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link href="../../css/blog-templet.css" rel="stylesheet" />
+    <link href="css/2017062103.css" rel="stylesheet" />
+    
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/blog-templet.js"></script>
+    <script src="js/2017062103.js"></script>
+
+</head>
+
+<body>
+    <div class="public-header learnings" style="z-index:1">
+        <div class="public-container ">
+            <span class="text-type">学习笔记</span>
+            <span class="explaination">好好学习，天天向上！</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div class="main-container">
+            <div class="blog-title"><h2>仿京东无延时菜单</h2></div>
+            
+            <p>一般的网站，当用户鼠标在一级菜单上滑动时会相应地显示二级菜单，而当用户的鼠标从一级菜单上滑动到二级菜单时有很大的概率会经过其他的一级菜单，
+            从而要滑动到的二级菜单消失，显示现在滑动到的一级菜单的二级菜单。（尼玛，真特么绕！）</p><br/>
+            <p>普通的做法就是加延时，当用户鼠标滑过其他一级菜单时，页面不会立即反应，这就带来了一个问题：用户真的要选其他的一级菜单时，加延时会
+            在无形中增加用户的等待时间。</p><br/>
+            <p>本次学习的内容就是实现一个仿京东的无延时菜单。</p><br/>
+            <p>学习来源：<a href="http://www.imooc.com/learn/829" style="display:inline">http://www.imooc.com/learn/829</a></p><br/>
+            <p>再给个京东主页的链接：<a href="https://www.jd.com" style="display:inline">https://www.jd.com</a></p><br/>
+            <p>最终效果如下：</p>
+            <div class="wrap" id="test" style="z-index:0">
+                <ul>
+                    <li data-id="a">
+                        <span>家用电器</span>
+                    </li>
+                    <li data-id="b">
+                        <span>手机/运营商/数码</span>
+                    </li>
+                    <li data-id="c">
+                        <span>电脑办公</span>
+                    </li>
+                    <li data-id="d">
+                        <span>家居/家具/家装/厨具</span>
+                    </li>
+                    <li data-id="e">
+                        <span>男装/女装/童装/内衣</span>
+                    </li>
+                    <li data-id="f">
+                        <span>个性化妆/清洁用品/宠物</span>
+                    </li>
+                    <li data-id="g">
+                        <span>鞋靴/箱包/珠宝/奢侈品</span>
+                    </li>
+                    <li data-id="h">
+                        <span>运动/户外/钟表</span>
+                    </li>
+                    <li data-id="i">
+                        <span>汽车/汽车用品</span>
+                    </li>
+                    <li data-id="j">
+                        <span>女婴/玩具乐器</span>
+                    </li>
+                    <li data-id="k">
+                        <span>食品/酒类/生鲜/特产</span>
+                    </li>
+                    <li data-id="l">
+                        <span>医药保健</span>
+                    </li>
+                </ul>
+                <div id="sub" class="none">
+                    <div id="a" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">a电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">a合资品牌</a>
+                                <a href="#">a国产品牌</a>
+                                <a href="#">a互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">a电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">a合资品牌</a>
+                                <a href="#">a国产品牌</a>
+                                <a href="#">a互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">a电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">a合资品牌</a>
+                                <a href="#">a国产品牌</a>
+                                <a href="#">a互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">a电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">a合资品牌</a>
+                                <a href="#">a国产品牌</a>
+                                <a href="#">a互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="b" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">b电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">b合资品牌</a>
+                                <a href="#">b国产品牌</a>
+                                <a href="#">b互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">b电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">b合资品牌</a>
+                                <a href="#">b国产品牌</a>
+                                <a href="#">b互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">b电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">b合资品牌</a>
+                                <a href="#">b国产品牌</a>
+                                <a href="#">b互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">b电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">b合资品牌</a>
+                                <a href="#">b国产品牌</a>
+                                <a href="#">b互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="c" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">c电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">c合资品牌</a>
+                                <a href="#">c国产品牌</a>
+                                <a href="#">c互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">c电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">c合资品牌</a>
+                                <a href="#">c国产品牌</a>
+                                <a href="#">c互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">c电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">c合资品牌</a>
+                                <a href="#">c国产品牌</a>
+                                <a href="#">c互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">c电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">c合资品牌</a>
+                                <a href="#">c国产品牌</a>
+                                <a href="#">c互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="d" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">d电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">d合资品牌</a>
+                                <a href="#">d国产品牌</a>
+                                <a href="#">d互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">d电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">d合资品牌</a>
+                                <a href="#">d国产品牌</a>
+                                <a href="#">d互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">d电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">d合资品牌</a>
+                                <a href="#">d国产品牌</a>
+                                <a href="#">d互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">d电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">d合资品牌</a>
+                                <a href="#">d国产品牌</a>
+                                <a href="#">d互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="e" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">e电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">e合资品牌</a>
+                                <a href="#">e国产品牌</a>
+                                <a href="#">e互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">e电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">e合资品牌</a>
+                                <a href="#">e国产品牌</a>
+                                <a href="#">e互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">e电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">e合资品牌</a>
+                                <a href="#">e国产品牌</a>
+                                <a href="#">e互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">e电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">e合资品牌</a>
+                                <a href="#">e国产品牌</a>
+                                <a href="#">e互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="f" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">f电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">f合资品牌</a>
+                                <a href="#">f国产品牌</a>
+                                <a href="#">f互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">f电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">f合资品牌</a>
+                                <a href="#">f国产品牌</a>
+                                <a href="#">f互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">f电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">f合资品牌</a>
+                                <a href="#">f国产品牌</a>
+                                <a href="#">f互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">f电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">f合资品牌</a>
+                                <a href="#">f国产品牌</a>
+                                <a href="#">f互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="g" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">g电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">g合资品牌</a>
+                                <a href="#">g国产品牌</a>
+                                <a href="#">g互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">g电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">g合资品牌</a>
+                                <a href="#">g国产品牌</a>
+                                <a href="#">g互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">g电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">g合资品牌</a>
+                                <a href="#">g国产品牌</a>
+                                <a href="#">g互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">g电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">g合资品牌</a>
+                                <a href="#">g国产品牌</a>
+                                <a href="#">g互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="h" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">h电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">h合资品牌</a>
+                                <a href="#">h国产品牌</a>
+                                <a href="#">h互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">h电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">h合资品牌</a>
+                                <a href="#">h国产品牌</a>
+                                <a href="#">h互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">h电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">h合资品牌</a>
+                                <a href="#">h国产品牌</a>
+                                <a href="#">h互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">h电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">h合资品牌</a>
+                                <a href="#">h国产品牌</a>
+                                <a href="#">h互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="i" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">i电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">i合资品牌</a>
+                                <a href="#">i国产品牌</a>
+                                <a href="#">i互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">i电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">i合资品牌</a>
+                                <a href="#">i国产品牌</a>
+                                <a href="#">i互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">i电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">i合资品牌</a>
+                                <a href="#">i国产品牌</a>
+                                <a href="#">i互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">i电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">i合资品牌</a>
+                                <a href="#">i国产品牌</a>
+                                <a href="#">i互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="j" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">j电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">j合资品牌</a>
+                                <a href="#">j国产品牌</a>
+                                <a href="#">j互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">j电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">j合资品牌</a>
+                                <a href="#">j国产品牌</a>
+                                <a href="#">j互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">j电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">j合资品牌</a>
+                                <a href="#">j国产品牌</a>
+                                <a href="#">j互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">j电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">j合资品牌</a>
+                                <a href="#">j国产品牌</a>
+                                <a href="#">j互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="k" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">k电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">k合资品牌</a>
+                                <a href="#">k国产品牌</a>
+                                <a href="#">k互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">k电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">k合资品牌</a>
+                                <a href="#">k国产品牌</a>
+                                <a href="#">k互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">k电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">k合资品牌</a>
+                                <a href="#">k国产品牌</a>
+                                <a href="#">k互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">k电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">k合资品牌</a>
+                                <a href="#">k国产品牌</a>
+                                <a href="#">k互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <div id="l" class="sub_content none">
+                        <dl>
+                            <dt>
+                                <a href="#">l电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">l合资品牌</a>
+                                <a href="#">l国产品牌</a>
+                                <a href="#">l互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">l电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">l合资品牌</a>
+                                <a href="#">l国产品牌</a>
+                                <a href="#">l互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">l电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">l合资品牌</a>
+                                <a href="#">l国产品牌</a>
+                                <a href="#">l互联网品牌</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <a href="#">l电视<i>&gt;</i></a>
+                            </dt>
+                            <dd>
+                                <a href="#">l合资品牌</a>
+                                <a href="#">l国产品牌</a>
+                                <a href="#">l互联网品牌</a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                </div>
+                </div>
+            <div style="clear:both"></div>
+            <br/><br /><br /><br /><br />
+            <p>所用到的主要原理是：如果一个点在三角形内，这个点和三角形的三个顶点形成的向量两两叉乘符号相同，因为若点在三角形内，与三个定点形成的向量的同一时针方向的夹角不可能大于180度。</p><br/>
+            <p>通过判断用户的鼠标点在不在原来停留的点和二级菜单的左上角点和左下角点形成的三角形内，来预测用户是想移到当前二级菜单，还是移到其他一级菜单。如果是一道当前二级菜单，就给他一个延时，
+            如果是移到其他的一级菜单，就不给延时，立即显示喽~</p><br/>
+            <p> w(ﾟДﾟ)w &nbsp; &nbsp; &nbsp;不得不说想出这个解决方案的人真是666！</p><br/>
+            <div class="mark">用户行为预测</div>
+            
+            <div class="time">2017-06-21</div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</body>
+</html>
