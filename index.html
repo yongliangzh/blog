@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="css/sweetalert.css" rel="stylesheet" />
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/sweetalert.min.js"></script>
+
 </head>
 
 <body>
@@ -21,7 +18,7 @@
         <div class="public-container">
             <span class="nick-name">和光同尘</span><br /><br />
             <span class="note">和光同尘，与时舒卷；戢鳞潜翼，思属风云。</span>
-            <div style="position:relative;top:-4px;display:inline-block;width:200px;float:right"> <input type="text" class="form-control" placeholder="搜索" /></div>
+            <div style="position:relative;top:-4px;display:inline-block;width:200px;float:right"> <input type="text" class="form-control" placeholder="搜索" id="SearchText"/></div>
         </div>
     </div>
     <div class="index-pannel">
@@ -45,26 +42,26 @@
                 </div>
                 <div class="panel panel-default" style="margin-top:30px;">
                     <div class="panel-body">
-                        <span>2017年 02月更新</span><br />
-                        <span>2017年 03月更新</span><br />
-                        <span>2017年 04月更新</span><br />
-                        <span>2017年 05月更新</span><br />
-                        <span>2017年 06月更新</span><br />
+                        <span onclick="findupdate('201702')">2017年 02月更新</span><br />
+                        <span onclick="findupdate('201703')">2017年 03月更新</span><br />
+                        <span onclick="findupdate('201704')">2017年 04月更新</span><br />
+                        <span onclick="findupdate('201705')">2017年 05月更新</span><br />
+                        <span onclick="findupdate('201706')">2017年 06月更新</span><br />
                     </div>
                 </div>
                 <div class="panel panel-default" style="margin-top:30px;">
                     <div class="panel-body">
-                        <div style="background-color:#337ab7"></div><span>  编程之道</span>
-                        <div style="background-color:#d9edf7"></div><span>  编程之术</span><br />
-                        <div style="background-color:#dff0d8"></div><span>  学习笔记</span>
-                        <div style="background-color:#fcf8e3"></div><span>  注意事项</span><br />
-                        <div style="background-color:#f5f5f5"></div><span>  日常吐槽</span><br />
+                        <div style="background-color:#337ab7"></div><span  onclick="selecttype('methods')">  编程之道</span>
+                        <div style="background-color:#d9edf7"></div><span  onclick="selecttype('summaries')">  编程之术</span><br />
+                        <div style="background-color:#dff0d8"></div><span  onclick="selecttype('learnings')">  学习笔记</span>
+                        <div style="background-color:#fcf8e3"></div><span  onclick="selecttype('warnings')">  注意事项</span><br />
+                        <div style="background-color:#f5f5f5"></div><span  onclick="selecttype('dialogs')">  日常吐槽</span><br />
                     </div>
                 </div>
             </div>
             <div class="container-r">
 
-                <div class="panel panel-primary" onclick="window.open('blog-templet-methods.html')" style="cursor:pointer" id="2017111101">
+                <div class="panel panel-primary" onclick="window.open('blog-templet-methods.html')" style="cursor:pointer" updatetime="201711" blogtype="methods" isshow="0">
                     <div class="panel-heading">图解CSS3</div>
                     <div class="panel-body">
                         详细讲解了选择器、边框、背景、文本、颜色、盒模型、伸缩布局盒模型、多列布局、渐变、过渡、动画、媒体、响应Web设计、Web字体等主题下涵盖的所有CSS3新特性
@@ -72,7 +69,7 @@
                     <div class="panel-footer" style="text-align:right">日期：2017-11-11</div>
                 </div>
 
-                <div class="panel panel-default" onclick="window.open('blogs/201705/2017052101.html')" style="cursor:pointer" id="2017111102">
+                <div class="panel panel-default" onclick="window.open('blogs/201705/2017052101.html')" style="cursor:pointer" updatetime="201705" blogtype="dialogs" isshow="0">
                     <div class="panel-heading">解决Windows Server远程桌面不能复制粘贴的办法</div>
                     <div class="panel-body">
                        原博主不肯转载，那就贴个链接好啦！简单说下，就是去任务管理器删掉rdpclip.exe，然后win+r输入rdpclip.exe重启就好了！                    
@@ -80,7 +77,7 @@
                     <div class="panel-footer"><div class="label-mark">Windows Server</div><span class="time">日期：2017-05-21</span></div>
                 </div>
 
-                <div class="panel panel-info" onclick="window.open('blogs/201706/2017061901.html')" style="cursor:pointer" id="2017061901">
+                <div class="panel panel-info" onclick="window.open('blogs/201706/2017061901.html')" style="cursor:pointer"  updatetime="201706" blogtype="summaries" isshow="0">
                     <div class="panel-heading">Ajax和JSON的一些总结</div>
                     <div class="panel-body">
                         jQuery对Ajax操作进行了封装，在jQuerry中$.ajax()方法属于最底层的方法，
@@ -89,7 +86,7 @@
                     <div class="panel-footer"><div class="label-mark">Ajax</div><div class="label-mark">JSON</div><span class="time">日期：2017-06-19</span></div>
                 </div>
 
-                <div class="panel panel-warning" onclick="window.open('blogs/201706/2017062101.html')" style="cursor:pointer" id="2017062101">
+                <div class="panel panel-warning" onclick="window.open('blogs/201706/2017062101.html')" style="cursor:pointer"  updatetime="201706" blogtype="warnings" isshow="0">
                     <div class="panel-heading">Bootstrap Table传参的一些问题</div>
                     <div class="panel-body">
                         因为这一次的Bootstrap Table需要传筛选条件去后台，然后取数据显示，我就想着加在URL里传过去，前台的代码如下：
@@ -97,7 +94,7 @@
                     <div class="panel-footer"><div class="label-mark">POST</div><div class="label-mark">GET</div><span class="time">日期：2017-06-21</span></div>
                 </div>
 
-                <div class="panel panel-success" onclick="window.open('blogs/201706/2017062102.html')" style="cursor:pointer" id="2017062102">
+                <div class="panel panel-success" onclick="window.open('blogs/201706/2017062102.html')" style="cursor:pointer"  updatetime="201706" blogtype="learnings" isshow="0">
                     <div class="panel-heading">图片预加载技术</div>
                     <div class="panel-body">
                     在我们浏览网页时，经常因为网速问题，使得一些图片得不到及时显示，进而影响了用户体验，而图片预加载技术就能很好地解决这一问题。
@@ -105,7 +102,7 @@
                         <div class="panel-footer"><div class="label-mark">用户体验</div><span class="time">日期：2017-06-21</span></div>
                 </div>
 
-                <div class="panel panel-success" onclick="window.open('blogs/201706/2017062103.html')" style="cursor:pointer" id="2017062102">
+                <div class="panel panel-success" onclick="window.open('blogs/201706/2017062103.html')" style="cursor:pointer"  updatetime="201706" blogtype="learnings" isshow="0">
                     <div class="panel-heading">仿京东无延时菜单</div>
                     <div class="panel-body">
                     一般的网站，当用户鼠标在一级菜单上滑动时会相应地显示二级菜单，而当用户的鼠标从一级菜单上滑动到二级菜单时有很大的概率会经过其他的一级菜单...
@@ -121,5 +118,9 @@
             </div>
         </div>
     </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/sweetalert.min.js"></script>
 </body>
 </html>
