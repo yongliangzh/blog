@@ -1,0 +1,125 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片预加载技术</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
+    <link href="../../../css/blog-templet.css" rel="stylesheet" />
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/blog-templet.js"></script>
+</head>
+
+<body>
+    <div class="public-header learnings">
+        <div class="public-container ">
+            <span class="text-type">学习笔记</span>
+            <span class="explaination">好好学习，天天向上！</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div class="main-container">
+            <div class="blog-title"><h2>图片预加载技术</h2></div>
+            <p>在我们浏览网页时，经常因为网速问题，使得一些图片得不到及时显示，进而影响了用户体验，而图片预加载技术就能很好地解决这一问题。</p><br />
+            <p>本文的学习来源：<a href="http://www.imooc.com/learn/502 " style="display:inline">http://www.imooc.com/learn/502 </a></p><br />
+            <p>实现代码如下：</p><br />
+            <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;图片预加载&lt;/title&gt;
+&lt;style&gt;
+    html, body {
+        height: 100%;
+    }
+    a {
+        text-decoration: none;
+    }
+    .box {
+        text-align: center;
+    }
+    .btn {
+        display: inline-block;
+        height: 30px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 0 10px;
+        margin-right: 50px;
+        color: #333;
+    }
+        .btn:hover {
+            background-color: #eee;
+        }
+    .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #eee;
+        text-align: center;
+    }
+    .progress {
+        margin-top: 300px;
+    }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="box"&gt;
+&lt;img src="http://img.article.pchome.net/00/44/23/20/pic_lib/wm/2.jpg" alt="pic" id="img" width="1200px"/&gt;
+&lt;p&gt;
+&lt;a href="javascript:;" class="btn" data-control="prev"&gt;上一页&lt;/a&gt;
+&lt;a href="javascript:;" class="btn" data-control="next"&gt;下一页&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;/div&gt;
+&lt;div class="loading"&gt;
+&lt;p class="progress"&gt;0%&lt;/p&gt;
+    &lt;/div&gt;
+&lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
+    
+&lt;script&gt;
+    var imgs = [
+        'http://img.article.pchome.net/00/44/23/20/pic_lib/wm/2.jpg',
+        'http://lcd.yesky.com/imagelist/2009/044/404q4y8g4m0p.jpg',
+        'http://pc.duowan.com/uploads/allimg/2009-11/16101540-6-4K952.jpg',
+        'http://lcd.yesky.com/imagelist/2009/044/cgro54wt2t2x.jpg'
+    ];
+    var index = 0;
+    var len = imgs.length;
+    var count = 0,
+    $progress = $('.progress');
+    $.each(imgs, function (i, src) {
+        var imgObj = new Image();
+        $(imgObj).on('load error', function () {
+            $progress.html(Math.round((count + 1) / len * 100) + '%');
+            if (count == len - 1) {
+                $('.loading').hide();
+                document.title = '1/' + len;
+            }
+            count++;
+        });
+        imgObj.src = src;
+    })
+    $('.btn').on('click', function () {
+        if ($(this).data('control') === 'prev') {
+            index = Math.max(0, --index);
+        } else {
+            index = Math.min(len - 1, ++index);
+        }
+        document.title = (index + 1) + '/' + len;
+        $('#img').attr('src', imgs[index]);
+    })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><br />
+            <p>主要实现的是在加载过程中用已加载和加载错误的图片总数除以需要加载的图片数，算出加载的百分比并显示在界面上，
+            用户就能看到图片加载的过程，在加载完成之后将所有图片呈现给用户。</p><br/>
+            <p>代码如有雷同，纯属我抄你！(๑•̀ㅂ•́)و✧</p><br/>
+            <div class="mark">用户体验</div>
+           
+            <div class="time">2017-06-21</div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</body>
+</html>
