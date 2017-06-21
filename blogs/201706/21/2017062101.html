@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Table传参的一些问题</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
+    <link href="../../../css/blog-templet.css" rel="stylesheet" />
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/blog-templet.js"></script>
+</head>
+
+
+<body>
+    <div class="public-header warnings">
+        <div class="public-container ">
+            <span class="text-type">注意事项</span>
+            <span class="explaination">从哪里跌倒就从哪里爬起来！</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div class="main-container">
+            <div class="blog-title"><h2>Bootstrap Table传参的一些问题</h2></div>
+            <p>因为这一次的Bootstrap Table需要传筛选条件去后台，然后取数据显示，我就想着加在URL里传过去，前台的代码如下：</p>
+            <pre>$('#table').bootstrapTable('refresh', 
+{ url: '/ashx/admin/professionaction.aspx?action=list&sorttype='+sorttype });</pre>
+            <p>那么我需要在后台接收<span style="color:blue">list</span>和<span style="color:blue">sorttype</span></p>
+            <p>因为我经常使用$.post()，所以很习惯地写了：</p>
+            <pre>string list= Request.Form["list"];
+string sorttype= Request.Form["sorttype"];</pre>
+            <p>结果嘛，就是死活拿不到数据喽 ╮（╯＿╰）╭</p><br/>
+            <p>其实像这种跟在URL后传递的是<span style="color:red">GET请求</span>,是不能用Request.Form["sorttype"];来取值的，
+            得用<span style="color:red">Request.QueryString["sorttype"];</span></p><br/>
+            <p>《锋利的jQuerry（第二版）》中详细讲述了两种请求方式的区别：</p><br/>
+            <p>GET请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给Web服务器。当然，在Ajax请求中，这种区别对用户是不可见的。</p><br/>
+            <p>GET方式对传输的数据大小有限制（通常不能大于2KB），而使用POST方式传递的数据量要比GET方式大得多（理论上不受限制）。</p><br/>
+            <p>GET方式请求的数据会被浏览器缓存起来，因此其他人就可以从浏览器的历史纪录中读取到这种数据，例如账号和密码等。在某种情况下，
+            GET方式会带来严重的安全问题，而POST方式相对来说可以避免这些问题。</p><br/>
+            <p>最后是取值了，上面已经说了，不重复写了。</p><br/>
+            <div class="mark">POST</div>
+            <div class="mark">GET</div>
+            <div class="time">2017-06-21</div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</body>
+</html>
