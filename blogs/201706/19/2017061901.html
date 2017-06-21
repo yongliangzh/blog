@@ -38,8 +38,8 @@
             <pre>Response.Write("error");</pre>
             <p>那在前台这样取数据：</p>
             <pre>$.post("/Action/UserAction.aspx", {
-            action: "getuserinfo",<
-            dataType: "json"<
+            action: "getuserinfo",
+            dataType: "json"
         }, function (json) {
            alert(json);
         }).error(function () { $.toptip('连接服务器失败', 'error'); });
@@ -84,6 +84,7 @@ Response.Write(json);</pre>
 </pre><br/>
             <p>不得不说JSON真是个好东西，是一种非常灵活的数据传输格式，比如数组中的一个单元不仅可以是一个变量还可以是一个数组，
             很好很强大！</p><br />
+            <p>2017-06-21更新：其实这里对数组的表述有些问题，因为JSON的最小单元是我们称之为“值对”的东西。哎呀，不管了！</p><br/>
             <div class="mark">Ajax</div>
             <div class="mark">JSON</div>
             <div class="time">2017-06-19</div>
