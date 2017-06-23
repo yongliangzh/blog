@@ -85,22 +85,36 @@ $('#SearchText').bind('input propertychange', function () {
 function findupdate(time) {
     BlogIndex = 0;
     BlogsNum = 0;
-    $(".container-r").find(".panel").each(function () {
-        if (time == $(this).attr("updatetime")) {
-            $(this).attr("isshow", "1");
+    if (time == "FindAll") {
+        $(".container-r").find(".panel").each(function () {
             if (BlogIndex < 5) {
                 $(this).show();
                 BlogIndex++;
             } else {
                 $(this).hide();
             }
+            $(this).attr("isshow", "1");
             BlogsNum++;
-        } else {
-            $(this).attr("isshow", "0");
-            $(this).hide();
-        }
+        })
 
-    });
+    } else {
+        $(".container-r").find(".panel").each(function () {
+            if (time == $(this).attr("updatetime")) {
+                $(this).attr("isshow", "1");
+                if (BlogIndex < 5) {
+                    $(this).show();
+                    BlogIndex++;
+                } else {
+                    $(this).hide();
+                }
+                BlogsNum++;
+            } else {
+                $(this).attr("isshow", "0");
+                $(this).hide();
+            }
+
+        });
+    }
 }
 
 function selecttype(type) {
