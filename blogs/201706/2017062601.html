@@ -1,0 +1,42 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL语句实现数据库的复制、修改某字段、重新插入</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link href="../../css/blog-templet.css" rel="stylesheet" />
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/blog-templet.js"></script>
+</head>
+
+<body>
+    <div class="public-header dialogs">
+        <div class="public-container ">
+            <span class="text-type">日常吐槽</span>
+            <span class="explaination">不吐槽的会计师不是好的程序猿！</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div class="main-container">
+            <div class="blog-title"><h2>SQL语句实现数据库的复制、修改某字段、重新插入</h2></div>
+            <p>
+               估计客户嫌网页上操作比较烦，叫我们把岗中可检和必检、岗后可检和必检设置成和岗前可检和必检一样，
+                主管叫我写个for循环，excuse me？
+            </p><br/>
+            <p>其实我觉得在数据库中直接操作也可以，经过不懈努力，我敲出了如下语句：</p>
+            <pre>delete from whintj where gwstate=3 or gwstate=2
+insert into dbo.whintj 
+select whid,tjid,2,ischeck from dbo.whintj where gwstate=1
+insert into dbo.whintj 
+select whid,tjid,3,ischeck from dbo.whintj where gwstate=1</pre><br/>
+            <p>ヽ(✿ﾟ▽ﾟ)ノ&nbsp;&nbsp;一下就好了！</p><br/>
+            <p>可把我给牛逼坏了，插会腰...</p><br/>
+
+            <div class="mark">SQL</div>
+            <div class="time">2017-06-23</div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</body>
+</html>
