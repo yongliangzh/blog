@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浅谈编程过程中的思维定势</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link href="../../css/blog-templet.css" rel="stylesheet" />
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/blog-templet.js"></script>
+</head>
+
+<body>
+    <div class="public-header methods">
+<div class="public-container ">
+    <span class="text-type">编程之道</span>
+    <span class="explaination">道可道，非常道！</span>
+</div>
+    </div>
+    <div class="main-panel">
+<div class="main-container">
+    <div class="blog-title"><h2>浅谈编程过程中的思维定势</h2></div>
+    <p>在我们写代码时，需要经常考虑到代码的敏捷性和可复用性。这样，已经完成的模块不需要重复测试，
+    以前模块的组件可以为后面相同功能的模块服务，本是一件好事。</p><br/>
+    <p>然而在写代码时，往往因为身体惰性和思维惰性，一心想用前面已开发好的组件而忽略更加简单的方法，从而浪费大量时间。</p><br/>
+    <p>举个最近我在编程过程中遇到的例子。我以前做一个图片上传和显示的功能，首先把图片转换成Base64编码，然后拿到后台再存储成图片文件，
+    再返回文件的服务器路径以作显示。</p><br/>
+    <p>图片的前端编码代码如下：</p>
+    <pre>var reader = new FileReader();
+reader.readAsDataURL(fileList[i]);
+reader.onload = function (e) {
+    var image = new Image();
+    image.src = e.target.result;
+    image.onload = function () {
+        var expectWidth = this.naturalWidth;
+        var expectHeight = this.naturalHeight;
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        canvas.width = expectWidth;
+        canvas.height = expectHeight;
+        ctx.drawImage(this, 0, 0, expectWidth, expectHeight);
+        var base64 = null;
+        base64 = canvas.toDataURL("image/jpeg", 0.8);
+        $(a).parent().prev().append("&ltli onclick='removeimg(this);' "+
+        "style='background-image:url(" + base64 + ");' myar=" + base64 +  
+        "class='weui_uploader_file weui_uploader_status'&gt&ltdiv class='weui_uploader_status_content'&gt"+
+        "&lti class='weui_icon_cancel'&gt&lt/i&gt&lt/div&gt&lt/li&gt");
+    }
+}
+  </pre><br/>
+    <p>后来我根据图片的前端编码代码以及从后台返回的图片的服务器路径，
+    写出了图片的前端显示代码：</p>
+    <pre> var image = new Image();
+image.src = obj.Coverimg;
+image.onload = function () {
+    var expectWidth = this.naturalWidth;
+    var expectHeight = this.naturalHeight;
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+    canvas.width = expectWidth;
+    canvas.height = expectHeight;
+    ctx.drawImage(this, 0, 0, expectWidth, expectHeight);
+    var base64 = null;
+    base64 = canvas.toDataURL("image/jpeg", 0.8);
+    $(".weui_uploader_files").append("&ltli onclick='removeimg(this);' "+
+        "style='background-image:url(" + base64 + ");' myar=" + base64 +  
+        "class='weui_uploader_file weui_uploader_status'&gt&ltdiv class='weui_uploader_status_content'&gt"+
+        "&lti class='weui_icon_cancel'&gt&lt/i&gt&lt/div&gt&lt/li&gt"); 
+}</pre><br/>
+    <p>在单个图片的情况下，这样写也没什么问题。然而，现在要做一组列表，
+    每一个图片都对应着一段文字和一段链接：</p>
+    <img src="images/example-pic.png" style="width:90%;border:1px solid #666666;margin-left:5%" /><br />
+    <p>那么问题就来了，image.onload是异步传输，哪个图片先传完那个图片就会先显示出来，而我要做的是哪个图片先开始传，哪个图片就先显示。</p><br/>
+    <p>后来我试过一些方法，比如加锁，加延时。加锁的话写起来太麻烦，而加延时不仅无效还影响用户体验。我也想过先把图片显示出来，然后排序，同样的，
+    写起来非常麻烦。</p><br/>
+    <p>后来我仔细分析了一下：传图片到后台已经拿到了图片的Base64编码，而取图片的目的也是拿到图片的Base64编码显示，
+    以便再次传入后台，那我取图片时直接用前台传到后台的Base64编码显示不就好了！直接：</p>
+    <pre>for (var i = 0; i < picstr.length - 1; i++) {
+    var base64 = picbase64[i];
+    $(".weui_uploader_files").append("&ltli onclick='removeimg(this);' "+
+        "style='background-image:url(" + base64 + ");' myar=" + base64 +  
+        "class='weui_uploader_file weui_uploader_status'&gt&ltdiv class='weui_uploader_status_content'&gt"+
+        "&lti class='weui_icon_cancel'&gt&lt/i&gt&lt/div&gt&lt/li&gt"); 
+}</pre><br/>
+    <p>这样就省去了图片异步加载的步骤，感觉非常简单啊！</p><br/>
+    <p>所以平时我们在写代码时要实事求是，不能为了使用模板而去使用模板，要善于从源头解决问题，把握代码的关键之处。</p><br/><br/>
+    <div class="mark">原理与方法论</div>
+    <div class="time">2017-06-29</div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+</div>
+    </div>
+</body>
+</html>
