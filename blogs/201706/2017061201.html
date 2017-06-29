@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery中remove()函数的使用</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link href="../../css/blog-templet.css" rel="stylesheet" />
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/blog-templet.js"></script>
+</head>
+
+<body>
+    <div class="public-header warnings">
+        <div class="public-container ">
+            <span class="text-type">jQuery中remove()函数的使用</span>
+            <span class="explaination">从哪里跌倒就从哪里爬起来！</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div class="main-container">
+            <div class="blog-title"><h2>jQuery中remove()函数的使用</h2></div>
+            <p>在前端编程时，我们又是需要使用类似parent()、children()、prev()、next()之类的方法遍历DOM树来获取其他元素的信息，
+            而先对起始节点所在的分支做remove()操作会使以上方法失效。</p><br/>
+            <p>比如：</p>
+            <pre>    function removeimg(thislabel) {
+        $(thislabel).remove();
+        $(thislabel).parent().next().show();
+        
+    }</pre>
+            <p>这样第二条语句是会报错的，如果使用alert($(thislabel).parent().html())，会显示undefined</p><br/>
+            <p>正确的顺序应该是先操作、后移除：</p>
+            <pre>    function removeimg(thislabel) {
+        $(thislabel).parent().next().show();
+        $(thislabel).remove();
+    }</pre><br/>
+            <p>这种错误已经犯了第二次了，每次都要花很长时间找原因，现在写下来，避免日后再犯。</p><br/><br/>
+            <div class="mark">jQuery</div>
+            <div class="time">2017-06-12</div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</body>
+</html>
+
