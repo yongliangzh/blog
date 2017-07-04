@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "css/index.css",
+    "inputFile": "css/index.scss"
+  },
+  {
+    "outputFile": "css/blog-templet.min.css",
+    "inputFile": "css/blog-templet.scss"
+  }
+]
