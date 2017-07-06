@@ -69,7 +69,7 @@ image.onload = function () {
 }</pre><br/>
     <p>在单个图片的情况下，这样写也没什么问题。然而，现在要做一组列表，
     每一个图片都对应着一段文字和一段链接：</p>
-    <img src="images/example-pic.png" style="width:90%;border:1px solid #666666;margin-left:5%" /><br />
+    <img src="images/example-pic.png"  /><br />
     <p>那么问题就来了，image.onload是异步传输，哪个图片先传完那个图片就会先显示出来，而我要做的是哪个图片先开始传，哪个图片就先显示。</p><br/>
     <p>后来我试过一些方法，比如加锁，加延时。加锁的话写起来太麻烦，而加延时不仅无效还影响用户体验。我也想过先把图片显示出来，然后排序，同样的，
     写起来非常麻烦。</p><br/>

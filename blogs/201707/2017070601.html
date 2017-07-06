@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript&nbsp;toFixed()&nbsp;方法</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link href="../../css/blog-templet.min.css" rel="stylesheet" />
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/blog-templet.js"></script>
+</head>
+
+<body>
+    <div class="public-header warnings">
+        <div class="public-container ">
+            <span class="text-type">注意事项</span>
+            <span class="explaination">从哪里跌倒就从哪里爬起来！</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div class="main-container">
+            <div class="blog-title"><h2>JavaScript&nbsp;toFixed()&nbsp;方法</h2></div>
+            <p>最近做的一个打折报价的项目，需要将原价乘以折扣保留两位小数从而算出最终价格。
+            于是便用到了JavaScript中的toFixed()方法。</p><br />
+            <p>原来我是这样写的：</p>
+            <pre>$("#saveallprice").html(Number(allpricetemp)+showprice.toFixed(2))</pre><br/>
+            <p>发现id为saveallprice的标签显示为空,而用alert()把这两个数打出来没问题。于是我就用Firebug调断点试试看：</p>
+            <img  src="images/2017070602.png" /><br />
+            <p>发现toFixed()返回的是<span style="color:red">字符串</span>！注意到"893.76"上的引号没？</p>
+            <p>后来我看了<a style="display:inline-block" href="http://www.w3school.com.cn/jsref/jsref_tofixed.asp">http://www.w3school.com.cn/jsref/jsref_tofixed.asp</a>上
+            的说明：</p>
+            <img src="images/2017070601.png"/><br />
+            <p>尼玛坑爹啊！只能再用Number()转换成数字来计算了，这个函数设计得真是不友好！</p><br/><br/>
+                <div class="mark">JavaScript</div>
+            <div class="time">2017-07-06</div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</body>
+</html>
