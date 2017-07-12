@@ -1,8 +1,9 @@
-﻿var BlogIndex ;
+var BlogIndex ;
 var BlogsNum ;
 $(document).ready(function () {
     BlogIndex = 0;
     BlogsNum = 0;
+
     $(".container-r").find(".panel").each(function () {
         if (BlogIndex < 5) {
             $(this).show();
@@ -34,14 +35,17 @@ function prevlist() {
         
     });
     BlogIndex -= 5;
+
 }
 
 function nextlist() {
+
     if (BlogIndex >=BlogsNum) {
         swal("没有更多可以加载了", "╮（╯＿╰）╭");
         return;
     }
     var BlogIndexTemp = 0;
+    
     $(".container-r").find(".panel").each(function () {
         if ($(this).attr("isshow") == "1") {
             if (BlogIndexTemp < BlogIndex + 5 && BlogIndexTemp >= BlogIndex) {
@@ -54,9 +58,10 @@ function nextlist() {
             $(this).hide();
         }
 
-        
+
     });
     BlogIndex+=5;
+    
 }
 
 $('#SearchText').bind('input propertychange', function () {
