@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用file:///打开本地盘符</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link href="../../css/blog-templet.min.css" rel="stylesheet" />
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/blog-templet.js"></script>
+</head>
+
+<body>
+    <div class="public-header learnings">
+        <div class="public-container ">
+            <span class="text-type">学习笔记</span>
+            <span class="explaination">好好学习，天天向上！</span>
+        </div>
+    </div>
+    <div class="main-panel">
+        <div class="main-container">
+            <div class="blog-title"><h2>使用file:///打开本地盘符</h2></div>
+            <p>以前用设置浏览器图片路径的时候只知道设置相对路径，并不知道还能设置盘符这种东西。今天在学Angular.js的时候，用到了<code>$location.absUrl()</code>来返回当前页面的URL地址。返回的结果是：</p>
+            <pre>file:///C:/projects/angular/1.html</pre><br/>
+            <p>我就试着用盘符设置一下&lt;img&gt;标签的src：</p>
+            <pre>&lt;img src="file:///C:/Users/coder/Desktop/图片素材/1058905692_QpaaVF.jpg "/&gt;</pre><br/>
+            <p>结果也是可以的</p><br/>
+            <p>知道了可以使用file:///打开本地盘符,那么就没有必要把要显示的图片放在服务器目录下了，比如现在要显示d盘中的所有图片会非常方便。</p><br /><br />
+            <div class="mark">file:///</div>
+            <div class="time">2017-07-13</div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+</body>
+</html>

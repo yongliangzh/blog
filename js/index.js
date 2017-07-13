@@ -3,7 +3,6 @@ var BlogsNum ;
 $(document).ready(function () {
     BlogIndex = 0;
     BlogsNum = 0;
-
     $(".container-r").find(".panel").each(function () {
         if (BlogIndex < 5) {
             $(this).show();
@@ -22,6 +21,7 @@ function prevlist() {
     }
     var BlogIndexTemp = 0;
     $(".container-r").find(".panel").each(function () {
+        
         if ($(this).attr("isshow") == "1") {
             if (BlogIndexTemp < BlogIndex - 5 && BlogIndexTemp >= BlogIndex - 10) {
                 $(this).show();
