@@ -1,0 +1,1436 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>仿慕课网</title>
+    
+    <link href="css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link href="css/reset.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="public-header">
+        <div class="logo">
+            <a href="http://www.imooc.com"></a> 
+        </div>
+
+        <div>
+            <ul class="header-l">
+                <li><a href="http://www.imooc.com/course/list"  onfocus="this.blur();">课程</a></li>
+                <li>
+                    <a href="http://class.imooc.com/" target="_blank"  onfocus="this.blur();">职业路径
+                    </a><i class="icon-new1"></i>
+                </li>
+                <li><a href="http://coding.imooc.com" target="_blank"  onfocus="this.blur();">实战</a></li>
+                <li><a href="http://www.imooc.com/wenda" target="_blank"  onfocus="this.blur();">猿问</a></li>
+                <li><a href="http://www.imooc.com/article" target="_blank"  onfocus="this.blur();">手记</a></li>
+            </ul>
+
+            <ul class="header-r">
+                <li class="shop-car" onmouseover="showcart()" onmouseout="hidecart()">
+                    <a href="http://order.imooc.com/pay/cart" target="_blank"  onfocus="this.blur();"><i class="icon-shopping-cart">
+
+                    </i>&nbsp;购物车</a>
+                    <div class="shop-panel">
+                        <div class="shop-title-box">
+                            <h2 class="shop-title-l">我的购物车</h2>
+                            <h5 class="shop-title-r">已加入0门课程</h5>
+                            <div class="clearfloat"></div>
+                        </div>
+
+                        <div class="shop-body">
+                            <div class="blank"></div>
+                            <img class="shop-car-img" src="images/shop-car.png"/>
+                            <span>购物车里空空如野</span>
+                            <div class="mend">快去这里选择你中意的课程</div>
+                            <a href="http://coding.imooc.com" target="_blank">实战课程</a>
+                            <a href="http://www.imooc.com/course/program" target="_blank"  onfocus="this.blur();">职业路径</a>
+                        </div>
+
+                        <div class="shop-footer">
+                            <div class="my-cart"><a href="http://order.imooc.com/myorder" target="_blank"  onfocus="this.blur();">我的订单中心</a></div>
+                            <div class="my-cart-btn"><a href="http://order.imooc.com/myorder" target="_blank"  onfocus="this.blur();">去购物车</a></div>
+
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="notifi">
+                    <a href="http://www.imooc.com/u/4545579/notices" target="_blank"  onfocus="this.blur();">
+                        <i class="icon-bell"></i>
+                    </a>
+                </li>
+
+                <li class="header-img"  onmouseover="showmypanel()" onmouseout="hidemypanel()">
+                    <a href="http://www.imooc.com/u/4545579" target="_self"  onfocus="this.blur();">
+                        <img src="http://img.mukewang.com/545866130001bfcb02200220-100-100.jpg">
+                    </a>
+                    <div class="my-panel" >
+                        <a href="http://www.imooc.com/u/4545579" target="_self"  onfocus="this.blur();" class="header-img-big">
+                            <img src="http://img.mukewang.com/545866130001bfcb02200220-100-100.jpg">
+                        </a>
+                        <span>慕粉：2134471611</span><br/>
+                        <a href="http://www.imooc.com/u/4545579/experience" target="_blank" onfocus="this.blur();">经验：<b>7532</b></a>
+                        <a href="http://www.imooc.com/u/4545579/credit" target="_blank" onfocus="this.blur();">积分：<b>3</b></a>
+                        <div class="clearfloat"></div>
+                        <ul class="my-list">
+                            <li onmouseover="changebgd(this);" onmouseout="changebgl(this)"><a href="" target="_blank" onfocus="this.blur();" >我的课程</a></li>
+                            <li onmouseover="changebgd(this);" onmouseout="changebgl(this)"><a href="" target="_blank" onfocus="this.blur();" >订单中心</a></li>
+                            <li onmouseover="changebgd(this);" onmouseout="changebgl(this)"><a href="" tonmouseoverarget="_blank" onfocus="this.blur();" >积分商城</a></li>
+                            <li onmouseover="changebgd(this);" onmouseout="changebgl(this)"><a href="" target="_blank" onfocus="this.blur();" >个人设置</a></li>
+                        </ul>
+                        <div class="clearfloat"></div>
+                        <div class="last-learn">
+                            <span class="subject-title">jQuery基础(四)-动画篇</span>
+                            <span class="subject-content">2-3jQuery中上卷下拉切换slideToggl</span>
+                            <span class="subject-continue">继续</span>
+                        </div>
+                        <div class="log-out"><a href="" target="_self" onfocus="this.blur();">安全退出</a></div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="search-wrap">
+                <div id="prompt" >
+                    <a href="http://class.imooc.com/sc/20" target="_blank"  onfocus="this.blur();">前端小白</a>
+                    <a href="http://class.imooc.com/sc/18" target="_blank"  onfocus="this.blur();">Java入门</a>
+                </div>
+                <div id="search-area">
+                    <input id="search-text" class="search-input" type="text">
+                </div>
+                <i class="icon-search" onclick="search()"></i>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="bk"></div>
+        <div id="container">
+            <div id="list" style="left: -1200px;">
+                <a href="http://coding.imooc.com/class/122.html?mc_marking=209aee26f5cd0747a12cacb2fcd26109&mc_channel=banner" target="_blank" onfocus="this.blur();"><img src="images/banner-5.jpg" alt="1" /></a>
+                <a href="http://coding.imooc.com/class/96.html?mc_marking=d7163aeee9a5eab550a14cc2b699c976&mc_channel=banner" target="_blank" onfocus="this.blur();"><img src="images/banner-1.jpg" alt="1" /></a>
+                <a href="http://coding.imooc.com/class/117.html?mc_marking=be09399b65ac6aacacd2521d31ec5fcc&mc_channel=banner" target="_blank" onfocus="this.blur();"><img src="images/banner-2.jpg" alt="2" /></a>
+                <a href="http://coding.imooc.com/class/119.html?mc_marking=95d355da15b0edd23273d7949d063671&mc_channel=banner" target="_blank" onfocus="this.blur();"><img src="images/banner-3.jpg" alt="3" /></a>
+                <a href="http://coding.imooc.com/class/109.html?mc_marking=02b8e60903043e419983b80f9c2ecc5a&mc_channel=banner" target="_blank" onfocus="this.blur();"><img src="images/banner-4.jpg" alt="4" /></a>
+                <a href="http://coding.imooc.com/class/107.html?mc_marking=7a72c833ff9ae725588c7c13fe7d2f96&mc_channel=banner" target="_blank" onfocus="this.blur();"><img src="images/banner-5.jpg" alt="5" /></a>
+                <a href="http://coding.imooc.com/class/122.html?mc_marking=209aee26f5cd0747a12cacb2fcd26109&mc_channel=banner" target="_blank" onfocus="this.blur();"><img src="images/banner-6.jpg" alt="6" /></a>
+                <a href="http://coding.imooc.com/class/96.html?mc_marking=d7163aeee9a5eab550a14cc2b699c976&mc_channel=banner" target="_blank" onfocus="this.blur();"><img src="images/banner-1.jpg" alt="6" /></a>
+            </div>
+            <div id="buttons">
+                <span index="1" class="on"></span>
+                <span index="2"></span>
+                <span index="3"></span>
+                <span index="4"></span>
+                <span index="5"></span>
+                <span index="6"></span>
+            </div>
+            <a href="javascript:;" id="prev" class="arrow" onfocus="this.blur();"></a>
+            <a href="javascript:;" id="next" class="arrow" onfocus="this.blur();"></a>
+            <div id="list-menu">
+                <ul class="menu">
+                    <li class="item-out" data-id="a"><div class="menu-item" data-id="a"><span class="item-text">前端开发</span><span class="right-icon">></span></div></li>
+                    <li class="item-out" data-id="b"><div class="menu-item" data-id="b"><span class="item-text">后端开发</span><span class="right-icon">></span></div></li>
+                    <li class="item-out" data-id="c"><div class="menu-item" data-id="c"><span class="item-text">移动开发</span><span class="right-icon">></span></div></li>
+                    <li class="item-out" data-id="d"><div class="menu-item" data-id="d"><span class="item-text">数据库</span><span class="right-icon">></span></div></li>
+                    <li class="item-out" data-id="e"><div class="menu-item" data-id="e"><span class="item-text">云计算&大数据</span><span class="right-icon">></span></div></li>
+                    <li class="item-out" data-id="f"><div class="menu-item" data-id="f"><span class="item-text">运维&测试</span><span class="right-icon">></span></div></li>
+                    <li class="item-out" data-id="g"><div class="menu-item" data-id="g"><span class="item-text">UI设计</span><span class="right-icon">></span></div></li>
+                </ul>
+                <div id="sub" class="none">
+                    <div id="a" class="sub_content none" >
+                        <div class="sub-inner">
+                            <div class="sub-title">
+                                分类目录
+                            </div>
+                            <div>
+                                <span class="small-title">基础：</span>
+                                <div class="small-container">
+                                    <a href="" class="category">HTML&nbsp;/&nbsp;CSS</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">JavaScript</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">jQuery</a> 
+                                </div><br>
+                                <span class="small-title">进阶：</span>
+                                <div class="small-container">
+                                    <a href="" class="category">Html5</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">CSS3</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Node.js</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">AngularJS</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Bootstrap</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">React</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Sass&nbsp;/&nbsp;Less</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Vue.js</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">WebApp</a> 
+                                </div><br>
+                                <span class="small-title">其他：</span>
+                                <div class="small-container">
+                                    <a href="" class="category">前端工具</a> 
+                                </div>
+                                <div class="clearfloat"></div>
+                            </div>
+                            <div class="recommend-title">
+                                课程推荐
+                            </div>
+                            <div>
+                                <a href="" class="path"><span>职业路径</span>前端小白入门手册</a><br>
+                                <a href="" class="path"><span>职业路径</span>前端进阶：响应式开发与常用框架</a><br>
+                                <a href="" class="course"><span>实战</span>Vue+Node+MongoDB高级全栈开发</a><br>
+                                <a href="" class="course"><span>实战</span>Spring Boot微信点餐系统</a><br>
+                                <a href="" class="course"><span>课程</span>FullPage.js全屏滚动插件</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="b" class="sub_content none" >
+                        <div class="sub-inner">
+                            <div class="sub-title">
+                                分类目录
+                            </div>
+
+                            <div>
+
+                                <div class="small-container">
+                                    <a href="" class="category">PHP</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Java</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Python</a> 
+
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">C</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">C++</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Go</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">C#</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">React</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Ruby</a> 
+                                    
+                                </div><br>
+                                
+                                <div class="clearfloat"></div>
+                            </div>
+                            <div class="recommend-title">
+                                课程推荐
+                            </div>
+                            <div>
+                                <a href="" class="path"><span>职业路径</span>PHP从基础语法到原生项目开发</a><br>
+                                <a href="" class="path"><span>职业路径</span>Java基础语法与常用工具类</a><br>
+                                <a href="" class="course"><span>实战</span>高性能 高价值的PHP API接口开发</a><br>
+                                <a href="" class="course"><span>实战</span>基于Selenium的Web自动化测试</a><br>
+                                <a href="" class="course"><span>课程</span>Dwr实现JAVA服务器端向客户端推送消息</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="c" class="sub_content none" >
+                        <div class="sub-inner">
+                            <div class="sub-title">
+                                分类目录
+                            </div>
+
+                            <div>
+
+                                <div class="small-container">
+                                    <a href="" class="category">Android</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">iOS</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Unity&nbsp;3D</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Cocos2d-x</a> 
+                                    
+                                </div><br>
+                                
+                                <div class="clearfloat"></div>
+                            </div>
+                            <div class="recommend-title">
+                                课程推荐
+                            </div>
+                            <div>
+                                <a href="" class="path"><span>职业路径</span>Android网络与数据存储</a><br>
+                                <a href="" class="path"><span>职业路径</span>iOS界面优化与数据存储</a><br>
+                                <a href="" class="course"><span>实战</span>Android通用框架设计与完整电商APP开发</a><br>
+                                <a href="" class="course"><span>实战</span>Kotlin系统入门与进阶</a><br>
+                                <a href="" class="course"><span>课程</span>Android蓝牙本地操作</a><br>
+                                <a href="" class="course"><span>课程</span>Android实现卫星菜单</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="d" class="sub_content none" >
+                        <div class="sub-inner">
+                            <div class="sub-title">
+                                分类目录
+                            </div>
+
+                            <div>
+
+                                <div class="small-container">
+                                    <a href="" class="category">MySQL</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">MongoDB</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Oracle</a> 
+
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">SQL&nbsp;Server</a> 
+                                    
+                                </div><br>
+                                
+                                <div class="clearfloat"></div>
+                            </div>
+                            <div class="recommend-title">
+                                课程推荐
+                            </div>
+                            <div>
+
+                                <a href="" class="course"><span>实战</span>Spring Boot微信点餐系统</a><br>
+                                <a href="" class="course"><span>实战</span>Python操作三大主流数据库&nbsp;项目实战</a><br>
+                                <a href="" class="course"><span>课程</span>与MySQL的零距离接触</a><br>
+                                <a href="" class="course"><span>课程</span>MySQL开发技巧（三） </a><br>
+                                <a href="" class="course"><span>课程</span>MongoDB中文社区-北京专场（二）</a><br>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="e" class="sub_content none" >
+                        <div class="sub-inner">
+                            <div class="sub-title">
+                                分类目录
+                            </div>
+                            <div>
+
+                                <div class="small-container">
+                                    <a href="" class="category">大数据</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">云计算</a> 
+                                    
+                                </div><br>
+                                
+                                <div class="clearfloat"></div>
+                            </div>
+                            <div class="recommend-title">
+                                课程推荐
+                            </div>
+                            <div>
+
+                                <a href="" class="course"><span>实战</span>大数据Spark SQL慕课网日志分析</a><br>
+
+                                <a href="" class="course"><span>课程</span>Spark从零开始</a><br>
+                                <a href="" class="course"><span>课程</span>初识机器学习-理论篇</a><br>
+                                <a href="" class="course"><span>课程</span>R语言入门与进阶</a><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="f" class="sub_content none" >
+                        <div class="sub-inner">
+                            <div class="sub-title">
+                                分类目录
+                            </div>
+
+                            <div>
+
+                                <div class="small-container">
+                                    <a href="" class="category">测试</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">Linux</a> 
+                                    
+                                </div><br>
+                                
+                                <div class="clearfloat"></div>
+                            </div>
+                            <div class="recommend-title">
+                                课程推荐
+                            </div>
+                            <div>
+                                <a href="" class="course"><span>实战</span>Nginx从入门到实践</a><br>
+                                <a href="" class="course"><span>实战</span>基于Selenium的Web自动化测试</a><br>
+                                <a href="" class="course"><span>课程</span>自动化测试之selenium工具使用</a><br>
+                                <a href="" class="course"><span>课程</span>实例妙解Sed和Awk的秘密</a><br>
+                                <a href="" class="course"><span>课程</span>JMeter性能测试入门篇</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="g" class="sub_content none" >
+                        <div class="sub-inner">
+                            <div class="sub-title">
+                                分类目录
+                            </div>
+                            <div>
+
+                                <div class="small-container">
+                                    <a href="" class="category">动画动效</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">APPUI设计</a> 
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">设计工具</a> 
+
+                                    <span class="sprit">/</span>
+                                    <a href="" class="category">设计基础</a> 
+                                    
+                                </div><br>
+                                
+                                <div class="clearfloat"></div>
+                            </div>
+                            <div class="recommend-title">
+                                课程推荐
+                            </div>
+                            <div>
+
+                                <a href="" class="course"><span>课程</span>拍摄与剪辑“怀孕日记”</a><br>
+                                <a href="" class="course"><span>课程</span>Premiere魔术——图片变电影</a><br>
+                                <a href="" class="course"><span>课程</span>Axure入门初体验</a><br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    <div class="path-banner">
+        <a href="" target="_blank"> 
+            <img src="images/path_1.png">
+        </a>
+        <a href="" target="_blank"> 
+            <img src="images/path_2.png">
+        </a>
+        <a href="" target="_blank"> 
+            <img src="images/path_3.png">
+        </a>
+        <a href="" target="_blank"> 
+            <img src="images/path_4.png">
+        </a>
+        <a href="" target="_blank"> 
+            <img src="images/path_5.png">
+        </a>
+
+    </div>
+    <div class="main-container">
+        <div class="main-head">
+            实战推荐
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<div class="clearfloat"></div>
+    <div class="main-container">
+        <div class="main-head">
+            免费好课
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+<div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                    
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfloat"></div>
+    <div class="main-container">
+        <div class="main-head">
+            前端开发工程师
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+<div class="left-img web long">
+    <a class="left-img-top">
+        <div class="left-img-top1">职业路径</div>
+        <div class="left-img-top2">HTML5&CSS3进阶与常用框架</div>
+        <div class="left-img-top3">了解详情&nbsp;&nbsp;→</div>
+    </a>
+<div class="left-img-bottom-out">
+    <div class="left-img-bottom">
+        <a href="" >· HTML5与CSS3实现动态网页</a>
+        <a href="" >· 前端小白入门</a>
+        <a href="" >· 前端进阶：响应式开发与常用框架</a>
+    </div></div>
+</div>
+<a href="" target="_blank" class="top-l"><img src="images/5954b811000134b704680100.jpg"></a>
+<a href="" target="_blank" class="top-r"><img src="images/5950a66a0001febc04680100.jpg"></a>
+<div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+<div class="clearfloat"></div>
+    <div class="main-container">
+        <div class="main-head">
+            PHP开发工程师
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+<div class="left-img php long">
+    <a class="left-img-top">
+        <div class="left-img-top1">职业路径</div>
+        <div class="left-img-top2">PHP入门：基础语法到实际运用</div>
+        <div class="left-img-top3">了解详情&nbsp;&nbsp;→</div>
+    </a>
+<div class="left-img-bottom-out">
+    <div class="left-img-bottom">
+        <a href="" >· PHP进阶：面向对象及TP5框架初识</a>
+        <a href="" >· ECShop3从基本使用到二次开发</a>
+    
+    </div></div>
+</div>
+<a href="" target="_blank" class="top-l"><img src="images/5926bd490001157d09560100.jpg"></a>
+<div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+
+    <div class="clearfloat"></div>
+    <div class="main-container">
+        <div class="main-head">
+            Android开发工程师
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+<div class="left-img android long">
+    <a class="left-img-top">
+        <div class="left-img-top1">职业路径</div>
+        <div class="left-img-top2">HTML5&CSS3进阶与常用框架</div>
+        <div class="left-img-top3">了解详情&nbsp;&nbsp;→</div>
+    </a>
+<div class="left-img-bottom-out">
+    <div class="left-img-bottom">
+        <a href="" >· 零基础入门Android语法与界面</a>
+        <a href="" >· Android进阶：网络与数据存储</a>
+        <a href="" >· Android从界面到数据存储</a>
+    </div></div>
+</div>
+<a href="" target="_blank" class="top-l"><img src="images/591be51100019cbc04680100.jpg"></a>
+<a href="" target="_blank" class="top-r"><img src="images/5950a752000100bf04680100.jpg"></a>
+<div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">中级&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;1747人在学</span>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+<div class="clearfloat"></div>
+    <div class="main-container">
+        <div class="main-head">
+            iOS开发工程师
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+            <div class="left-img ios short">
+    <a class="left-img-top">
+        <div class="left-img-top1">职业路径</div>
+        <div class="left-img-top2">iOS进阶：界面优化与数据存储</div>
+        <div class="left-img-top3">了解详情&nbsp;&nbsp;→</div>
+    </a>
+<div class="left-img-bottom-out">
+    <div class="left-img-bottom">
+        <a href="" >· iOS入门：基础语法与常用控件</a>
+    </div></div>
+</div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfloat"></div>
+        <div class="main-container">
+        <div class="main-head">
+            JAVA开发工程师 
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+            <div class="left-img java short">
+    <a class="left-img-top">
+        <div class="left-img-top1">职业路径</div>
+        <div class="left-img-top2">Java零基础入门</div>
+        <div class="left-img-top3">了解详情&nbsp;&nbsp;→</div>
+    </a>
+
+</div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+        <div class="clearfloat"></div>
+        <div class="main-container">
+        <div class="main-head">
+            Python开发工程师
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+            <div class="left-img java short">
+   <a href="" ><img src="images/591d57d900019cbc02240227.jpg"></a>
+
+</div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfloat"></div>
+        <div class="main-container">
+        <div class="main-head">
+            Linux系统工程师 
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+            <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+                        <div class="course-card">
+                <div class="course-bac">
+                <div class="course-top">
+                    <span>Java</span><span>Android</span>
+                </div>
+                </div>
+                <div class="course-contain">
+                <h3 class="contain-title">BAT大咖助力&nbsp;全面升级Android面试</h3>
+                <div class="contain-body">
+                    2017最全面的Android面试课程，赢取称心offer的不二之选
+                </div>
+                <div class="contain-footer">
+                    <span class="footer-l">798人在学</span>
+                    <span class="footer-r">￥288.00</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<div class="clearfloat"></div>
+<div class="main-container">
+<div class="article article-l">
+        <h3 class="article-title">热门手记</h3>
+        <div class="article-contain">
+            <a class="article-head article-l">
+                XSS 和 CSRF 攻击的一些非常规防御方法
+            </a>
+            
+            <ul class="article-body">
+                <li class="article-item">
+                    <a class="article-item-title">
+                        PHP
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        你确定你真的懂Nginx与PHP的交互？
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        JAVA
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        10行代码搞定微信支付(Java版)
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        MongoDB
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        一锅端掉微信公众号-小程序的用户资料获取
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        JAVA
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        粉丝福利 | 喂，你这么帅这么美，关注下我好不好？
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        测试
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        web自动化测试从入门到持续集成
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        JAVA
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        单Activity架构，丝滑般享受
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+
+            </ul>
+<div class="clearfloat"></div>
+            <div class="article-footer">进入手记获取更多&nbsp;→</div>
+        </div>
+        </div>
+        <div class="article article-r" >
+        <h3 class="article-title">推荐猿问</h3>
+        <div class="article-contain">
+            <a class="article-head article-r">
+                【花式填坑】 第13期 如何高效开发企业级电商的前端？
+            </a>
+            
+            <ul class="article-body">
+                <li class="article-item">
+                    <a class="article-item-title">
+                        前端工具
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        迷茫啊。。
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        JAVA
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        Java里面的count++是什么意思？求解
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        C
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        想找一个C语言师傅，
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        JAVA
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        前几天新买的电脑，环境变量怎么配置都不行，求教大神。
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        JAVA
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        输入五位数，个数相加，怎么意思？求思路
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+                <li class="article-item">
+                    <a class="article-item-title">
+                        JAVA
+                    </a>
+                    <i>  · </i>
+                    <a class="article-item-text">
+                        关于java中的foreach，错哪了
+                    </a>
+                    <div class="clearfloat"></div>
+                </li>
+
+            </ul>
+<div class="clearfloat"></div>
+            <div class="article-footer">进入手记获取更多&nbsp;→</div>
+        </div>
+        </div>
+</div>
+<div class="clearfloat"></div>
+<div class="main-container">
+        <div class="main-head">
+            慕课精英名师推荐
+            <a class="head-r" href="">更多&nbsp;&gt;</a>
+        </div>
+        <div class="main-body">
+        <a href="" class="lecturer-item">
+            <img src="images/545850bb0001979202200220-200-200.jpg" class="lecturer-img">
+            <span class="lecturer-name">扬帆远航_</span>
+            <span class="lecturer-title">数据科学家</span>
+            <span class="lecturer-p">拥有多年带领华为数据挖掘团队给全世界范围内著名运营商提供大数据解决方案的经验，工作中所带领的团队主要负责处理、挖掘和分析每天数以TB计的数据。作为一个带领拥有20人团队成功完成多个全球项目的leader,非常了解当今用途最广泛的数据挖掘、机器学习和数理统计方法,同时有着多年熟练应用各种数据挖掘平台工具和数理统计包(例如R,python和Spark)经验。</span>
+        </a>
+        <a href="" class="lecturer-item">
+            <img src="images/583e9afa000166c410240770-200-200.jpg" class="lecturer-img">
+            <span class="lecturer-name">编_程_浪_子</span>
+            <span class="lecturer-title">PHP开发工程师</span>
+            <span class="lecturer-p">互联网搬砖小王子，从事互联网web 开发6年，热爱搬砖行业，有代码洁癖，对PHP，Python，Java都有涉猎， 实践经验丰富，富有激情，热爱分享，乐观开朗，喜欢专研新技术</span>
+        </a>
+        <a href="" class="lecturer-item">
+            <img src="images/590b09de0001503904000400-200-200.jpg" class="lecturer-img">
+            <span class="lecturer-name">DocMike</span>
+            <span class="lecturer-title">移动开发工程师</span>
+            <span class="lecturer-p">安卓工程师  多年开发和带团队经验，曾在BAT等多家一线互联网公司就职，P大硕士毕业，应届生导师、校招、社招面试官，主导与开发过多款知名的互联网金融、免费国际电话、外卖等项目的架构与开发</span>
+        </a>
+        <a href="" class="lecturer-item">
+            <img src="images/577baef700019c4501400140-200-200.jpg" class="lecturer-img">
+            <span class="lecturer-name">ustbhuangyi</span>
+            <span class="lecturer-title">滴滴前端技术专家</span>
+            <span class="lecturer-p">北京科技大学计算机专业硕士。曾任职百度，现就职滴滴，前端技术专家。对Vue.js有很深的理解，是《Vue.js权威指南》一书的主要作者。他有着教科书式的代码写作习惯，对代码有洁癖，追求高质量的代码。强化提升编写高可扩展，通用性强的代码的能力</span>
+        </a>
+        <a href="" class="lecturer-item">
+            <img src="images/54584cb50001e5b302200220-200-200.jpg" class="lecturer-img">
+            <span class="lecturer-name">快乐动起来呀</span>
+            <span class="lecturer-title">Web前端工程师</span>
+            <span class="lecturer-p">先后在360、去哪儿网、今日头条任资深前端工程师，在业务开发和工程架构方面有较多实战经验。</span>
+        </a>
+        </div>
+        </div>
+        <div class="clearfloat"></div>
+        </div>
+        <div class="foot">
+            <div class="foot-head">
+                <a href="" class="sinaweibo"></a>
+                <a href="" class="weixin"></a>
+                <a href="" class="tencentweibo"></a>
+                <a href="" class="qq"></a>
+            </div>
+            <div class="foot-link">
+                <a href="">企业合作</a>
+                <a href="">人才招聘</a>
+                <a href="">联系我们</a>
+                <a href="">讲师招募</a>
+                <a href="">常见问题</a>
+                <a href="">意见反馈</a>
+                <a href="">慕课大学</a>
+                <a href="">友情链接</a>
+            </div>
+            <div class="copy-right">
+                © 2017 imooc.com  京ICP备 13046642号-2
+            </div>
+        </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="js/megadropdown.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
