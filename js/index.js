@@ -12,7 +12,7 @@ $(document).ready(function () {
         }
         $(this).attr("isshow", "1");
         BlogsNum++;
-    })
+    });
 });
 function prevlist() {
     if (BlogIndex<=5) {

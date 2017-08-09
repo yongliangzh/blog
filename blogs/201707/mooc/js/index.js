@@ -35,18 +35,20 @@ function search(){
     window.open("http://www.imooc.com/search/?words="+$("#search-text").val()); 
 }
 
-        $(function () {
-            var container = $('#container');
-            var list = $('#list');
-            var buttons = $('#buttons span');
-            var prev = $('#prev');
-            var next = $('#next');
-            var index = 1;
-            var len = 6;
-            var interval = 5000;
-            var timer1;
+$(function () {
 
-            function animate (offset) {
+
+    var container = $('#container');
+    var list = $('#list');
+    var buttons = $('#buttons span');
+    var prev = $('#prev');
+    var next = $('#next');
+    var index = 1;
+    var len = 6;
+    var interval = 5000;
+    var timer1;
+
+    function animate (offset) {
                 var left = parseInt(list.css('left')) + offset;//获得最后的left
                 //偏移量大于零向左，小于零向右
                 if (offset>0) {
@@ -108,18 +110,18 @@ function search(){
             });
 
             buttons.each(function () {
-                 $(this).bind('click', function () {
+               $(this).bind('click', function () {
                      if (list.is(':animated') || $(this).attr('class')=='on') {//如果在动画中 或者是当前选中的就不动
-                         return;
-                     }
-                     var myIndex = parseInt($(this).attr('index'));
-                     var offset = -1200 * (myIndex - index);
+                       return;
+                   }
+                   var myIndex = parseInt($(this).attr('index'));
+                   var offset = -1200 * (myIndex - index);
 
-                     animate(offset);
+                   animate(offset);
                      index = myIndex;//获得选中的按钮的index赋给当前
                      showButton();
                  })
-            });
+           });
 
             container.hover(stop, play);//如果鼠标在轮播图上就停止，不在就显示
 
